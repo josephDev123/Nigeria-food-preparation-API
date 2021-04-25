@@ -11,6 +11,9 @@ if (isset($_GET['id'])) {
     
     $id = $_GET['id'];
     print_r($content_obj->getDataById($id)) ;
+
 }else{
-    print_r(array('message'=> 'No "id" parameter was passed to the query URL'));
+    print_r(json_encode(array('message'=> 'No "id" parameter was passed to the query URL')));
+    // set response code - 400 bad request
+    http_response_code(400);
 }

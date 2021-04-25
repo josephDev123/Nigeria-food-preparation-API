@@ -11,7 +11,9 @@ $post_obj = new Content($conn);
 
 // get posted data
 $create_data = json_decode(file_get_contents("php://input"));
-if (!empty($create_data->food_name && $create_data->food_introduction && $create_data->food_procedure && $create_data->food_ingredient && $create_data->food_image && $create_data->food_equipment )) {
+
+if (!empty($create_data->food_name) && !empty($create_data->food_introduction) && !empty($create_data->food_procedure) && !empty($create_data->food_ingredient) && !empty($create_data->food_image) && !empty($create_data->food_equipment) ) {
+    
    $post_obj->food_name = $create_data->food_name;
    $post_obj->food_introduction = $create_data->food_introduction;
    $post_obj->food_procedure = $create_data->food_procedure;

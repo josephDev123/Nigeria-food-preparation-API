@@ -2,8 +2,8 @@
 
 Class Content{
     private $conn ="";
-   public $food_name ='';
-   public $food_introduction = ""; 
+    public $food_name ='';
+    public $food_introduction = ""; 
     public $food_procedure ='';
     public $food_ingredient ='';
     public $food_image ='';
@@ -44,9 +44,16 @@ Class Content{
 
          public function post_data(){
             //statement
-            $sql = "INSERT INTO naija_food_prep VALUES(?, ?, ?,?,?,?)";
+            $sql = "INSERT INTO naija_food_prep(food_name, food_introduction, food_procedure, food_ingredient, food_image, food_equipment) VALUES(?, ?, ?,?,?,?)";
               //prepare statement
               $stmt = $this->conn->prepare($sql);
+              //escape characters
+              $this->food_name = htmlspecialchars(strip_tags($this->food_name));
+              $this->food_introduction = htmlspecialchars(strip_tags($this->food_introduction));
+              $this->food_procedure = htmlspecialchars(strip_tags($this->food_procedure));
+              $this->food_ingredient = htmlspecialchars(strip_tags($this->food_ingredient));
+              $this->food_image = htmlspecialchars(strip_tags($this->food_image));
+              $this->food_equipment = htmlspecialchars(strip_tags($this->food_equipment));
               //bind parameter to query
               $stmt->bindParam(1, $this->food_name);
               $stmt->bindParam(2, $this->food_introduction);
