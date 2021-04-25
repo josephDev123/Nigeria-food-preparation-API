@@ -2,6 +2,7 @@
 
 Class Content{
     private $conn ="";
+    public $id ='';
     public $food_name ='';
     public $food_introduction = ""; 
     public $food_procedure ='';
@@ -14,7 +15,7 @@ Class Content{
     }
 
     public function getAllContent(){
-        //statement
+        //query
         $sql = "SELECT * FROM naija_food_prep";
        //prepare statement
        $stmt = $this->conn->prepare($sql);
@@ -43,7 +44,7 @@ Class Content{
          }
 
          public function post_data(){
-            //statement
+            // query
             $sql = "INSERT INTO naija_food_prep(food_name, food_introduction, food_procedure, food_ingredient, food_image, food_equipment) VALUES(?, ?, ?,?,?,?)";
               //prepare statement
               $stmt = $this->conn->prepare($sql);
@@ -66,10 +67,24 @@ Class Content{
                     return true;
                 }else{
                     return false;
-                }
-            
-               
+                } 
                 
+            }
+
+            public function delete(){
+                //query
+                $sql = "DELETE FROM naija_food_prep WHERE id = ?";
+                //prepare statement
+                $stmt =$this->conn->prepare($sql);
+                //bind to the query
+                $stmt->bindParam(1, $this->id);
+                
+                if ($stmt->execute()) {
+                   return true;
+                }else{
+                    return false;
+                }
+
             }
          
     }
