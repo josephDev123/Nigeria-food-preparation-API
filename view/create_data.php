@@ -4,8 +4,8 @@ header('Access-Control-Allow-Origin: *');
  header('Content-Type: application/json');
  header('Access-Control-Allow-Method: POST');
 
-include '../classes/Data.php';
-include '../database_config/database.php';
+ include '../controller/Data.php';
+ include '../model/database.php';
 
 $post_obj = new Content($conn);
 

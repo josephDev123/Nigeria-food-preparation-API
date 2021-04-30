@@ -43,6 +43,9 @@ Class Content{
                  }
          }
 
+
+
+
          public function post_data(){
             // query
             $sql = "INSERT INTO naija_food_prep(food_name, food_introduction, food_procedure, food_ingredient, food_image, food_equipment) VALUES(?, ?, ?,?,?,?)";
@@ -71,6 +74,7 @@ Class Content{
                 
             }
 
+
             public function delete(){
                 //query
                 $sql = "DELETE FROM naija_food_prep WHERE id = ?";
@@ -83,6 +87,29 @@ Class Content{
                    return true;
                 }else{
                     return false;
+                }
+
+            }
+
+            public function update($id){
+                //query
+                $sql= "UPDATE naija_food_prep SET food_name = ?, food_introduction =?, food_procedure =?, food_ingredient =?, food_image =?, food_equipment=? WHERE id = '{$id}'";
+                //prepare statement
+                $stmt = $this->conn->prepare($sql);
+                //bind value to query
+                $stmt->bindParam(1, $this->food_name);
+                $stmt->bindParam(2, $this->food_introduction);
+                $stmt->bindParam(3, $this->food_procedure);
+                $stmt->bindParam(4, $this->food_ingredient);
+                $stmt->bindParam(5, $this->food_image);
+                $stmt->bindParam(6, $this->food_equipment);
+                
+                if($stmt->execute()){
+                    return true;
+                   
+                }else{
+                    return false;
+                  
                 }
 
             }

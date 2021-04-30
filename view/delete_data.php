@@ -3,8 +3,8 @@ header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 header('Access-Control-Allow-Method: DELETE');
 
-include '../classes/Data.php';
-include '../database_config/database.php';
+include '../controller/Data.php';
+include '../model/database.php';
 
 //Classes
 $delete_obj = new Content($conn);
