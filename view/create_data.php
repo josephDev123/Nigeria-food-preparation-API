@@ -13,12 +13,16 @@ $post_obj = new Content($conn);
 $create_data = json_decode(file_get_contents("php://input"));
 
 if (!empty($create_data->food_name) && !empty($create_data->food_introduction) && !empty($create_data->food_procedure) && !empty($create_data->food_ingredient) && !empty($create_data->food_image) && !empty($create_data->food_equipment) ) {
-    
+
    $post_obj->food_name = $create_data->food_name;
    $post_obj->food_introduction = $create_data->food_introduction;
    $post_obj->food_procedure = $create_data->food_procedure;
    $post_obj->food_ingredient = $create_data->food_ingredient;
-   $post_obj->food_image = $create_data->food_image;
+
+   $food_image_obj = $create_data->food_image;
+   $food_image_obj = 'images/'.$food_image_obj;
+   $post_obj->food_image =$food_image_obj;
+
    $post_obj->food_equipment = $create_data->food_equipment;
 
    if($post_obj->post_data()){
@@ -27,6 +31,7 @@ if (!empty($create_data->food_name) && !empty($create_data->food_introduction) &
   
       // tell the user
       echo json_encode(array("message" => "data was created."));
+      move_uploaded_file($food_image_obj, 'images/'.$food_image_obj);
    }else{
        // set response code - 503 service unavailable
        http_response_code(503);
@@ -34,6 +39,8 @@ if (!empty($create_data->food_name) && !empty($create_data->food_introduction) &
        // tell the user
        echo json_encode(array("message" => "Unable to create data."));
    }
+
+   
 }else{
     // set response code - 400 bad request
     http_response_code(400);
@@ -41,5 +48,6 @@ if (!empty($create_data->food_name) && !empty($create_data->food_introduction) &
     // tell the user
     echo json_encode(array("message" => "Unable to create data. Data is incomplete."));
 }
+
 
 
