@@ -10,6 +10,7 @@ include '../model/database.php';
 // updated data
 $updated_data = json_decode(file_get_contents("php://input"));
 $post_obj = new Content($conn);
+//id to be updated
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
     if(isset($updated_data->food_name) && isset($updated_data->food_introduction) && isset($updated_data->food_procedure) && isset($updated_data->food_ingredient) && isset($updated_data->food_image) && isset($updated_data->food_equipment) ){
