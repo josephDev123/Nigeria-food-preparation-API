@@ -1,5 +1,12 @@
 
 <?php
+
+    // server Db
+    $host = 'sql211.epizy.com';
+    $db_name = 'epiz_29070762_naija_food';
+    $username ='epiz_29070762';
+    $password = 'yCBnoO91CSEwW';
+
     $host = 'localhost';
     $db_name = 'naija_food';
     $username ='root';
