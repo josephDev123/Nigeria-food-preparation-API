@@ -7,12 +7,13 @@ It's an API that contain comprehensive procedure on how to cook nigeria foods. N
 PHP
 
 ## Get started
-1. [Fetch Api](http://naijafoodapi.42web.io/naija_food_prep%20Api/view/GetAllData.php);
+1. [Fetch Api](http://naijafoodapi.42web.io/naija_food_prep%20Api/view/GetAllData.php)
 2. [Post data]() = coming soon.........
 3. [Delete post by id]() = excluded for security reason
 4. [Update Api]() = coming soon.........
 
 //note: pass an integer as query(?) parameter
+
 5. [Fetch Api BY id](http://naijafoodapi.42web.io/naija_food_prep%20Api/view/Get_data_Id.php?id=?);
 
 
