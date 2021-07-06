@@ -12,7 +12,7 @@ PHP
 3. [Delete post by id]() = excluded for security reason
 4. [Update Api]() = coming soon.........
 
-//note: pass an integer as query(?) parameter
+//note: pass an integer as query(?) parameter to the link/url in number 5 of "Get started section" when opened in browser
 
 5. [Fetch Api BY id](http://naijafoodapi.42web.io/naija_food_prep%20Api/view/Get_data_Id.php?id=?);
 
